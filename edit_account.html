@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/src/img/icons/favicon.ico" type="image/x-icon">
+  <title>Edit user account</title>
+  <link rel="stylesheet" href="/output/style.css">
+</head>
+<body class="font-arial bg-white">
+
+  <!-- header start -->
+  <header>
+    <!-- navbar start -->
+    <nav class="flex justify-between bg-[#666E73] px-2 border-y border-[#2D444F] nav_bar">
+      <ul class="flex">
+        <li class="nav-link-sep">
+          <a href="./index.html" class="nav-link">Dashboard</a>
+        </li>
+        <li class="nav-link-sep">
+          <a href="./coach_active_inactive.html" class="nav-link">Coach Active/Inactive</a>
+        </li>
+        <li class="nav-link-sep">
+          <a href="./board.html" class="nav-link">Board</a>
+        </li>
+        <li class="relative group nav-link-sep">
+          <a href="javascript:void(0)" class="nav-link">Reports</a>
+          <!-- submenu start -->
+          <ul class="hidden group-hover:flex translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 w-[189px] flex-col justify-center border border-[#bcbcbc] absolute top-[28px] z-50 transition-all duration-100 nav-sub">
+            <li class="nav-li-bg">
+              <a href="./user_sales_report.html" class="block text-xs text-black py-[9px] px-3 border-b border-[#d0dfe2]">
+                User Wise Sales
+              </a>
+            </li>
+            <li class="nav-li-bg">
+              <a href="./user_sales_report_summary.html" class="block text-xs text-black py-[9px] px-3 border-b border-[#d0dfe2]">
+                User Wise Sales Summary
+              </a>
+            </li>
+            <li class="nav-li-bg">
+              <a href="./counter_sales_report.html" class="block text-xs text-black py-[9px] px-3 border-b border-[#d0dfe2]">
+                Counter Wise Sales Report
+              </a>
+            </li>
+            <li class="nav-li-bg">
+              <a href="./new_all_counter_sales_report.html" class="block text-xs text-black py-[9px] px-3 border-b border-[#d0dfe2]">
+                New All Counter Wise Sales Report
+              </a>
+            </li>
+            <li class="nav-li-bg">
+              <a href="./old_user_sales_report.html" class="block text-xs text-black py-[9px] px-3 border-b border-[#d0dfe2]">
+                Old User Wise Sales Report
+              </a>
+            </li>
+            <li class="nav-li-bg">
+              <a href="./leaving_coach_report.html" class="block text-xs text-black py-[9px] px-3 border-b border-[#d0dfe2]">
+                Leaving Coach Report
+              </a>
+            </li>
+            <li class="nav-li-bg">
+              <a href="./leaving_coach_report_version_2.html" class="block text-xs text-black py-[9px] px-3 border-b border-[#d0dfe2]">
+                Leaving Coach Report - Version 2
+              </a>
+            </li>
+          </ul>
+          <!-- submenu end -->
+        </li>
+        <li class="nav-link-sep">
+          <a href="./edit_account.html" class="nav-link">My Account</a>
+        </li>
+        <li class="nav-link-sep">
+          <a href="./login.html" class="nav-link">Logout</a>
+        </li>
+        <li class="text-[12px] uppercase text-[#FFFF00] font-bold mx-[7px] my-[5px]">
+          ARAMBAG AC COUNTER | USER NAME: PORTONICSCOUNTER
+        </li>
+      </ul>
+      <ul class="flex items-center">
+        <li class="relative">
+          <button class="text-xs text-white uppercase mr-1 py-[5px]" id="arrive_modal_btn">ARRIVED / DEPART STATUS</button>
+          <!-- arrive/depart modal box start -->
+          <div class="hidden absolute right-14 w-[320px] bg-[#f5f5f5] px-5 pt-2 pb-3 border border-[#a6a6a6] rounded-[0_0_5px_5px] shadow-[2px_2px_2px_#606060] overflow-y-auto z-50 arrive_modal_box" id="arrive_modal_box">
+            <form action="" method="post">
+              <div class="flex items-center justify-end gap-1 mb-1">
+                <span class="text-xs text-black">Route</span>
+                <select class="bg-white w-[200px] min-h-[27px] text-[12px] text-black align-middle p-0.5 border border-[#bcbcbc]">
+                  <option value="none" selected>---</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>               
+                </select>
+              </div>
+              <div class="flex items-center justify-end gap-1 mb-3">
+                <span class="text-xs text-black">Coach No:</span>
+                <select class="bg-white w-[200px] min-h-[27px] text-[12px] text-black align-middle p-0.5 border border-[#bcbcbc]">
+                  <option value="none" selected>---</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>
+                  <option value="none">Arambag Ac Counter</option>               
+                </select>
+              </div>
+              <div class="text-right">
+                <button type="submit" class="inline-block btn_top">Seach</button>
+              </div>
+            </form> 
+          </div>
+          <!-- arrive/depart modal box end -->
+        </li>
+        <li class="relative">
+          <button class="text-xs text-white uppercase py-[5px]" id="ticket_view_btn">| QUICK TICKET VIEW</button>
+          <div class="hidden absolute right-0 w-[300px] bg-[#f5f5f5] px-5 py-[10px] border border-[#aaa] rounded-[0_0_5px_5px] z-50" id="ticket_view_modal_box">
+            <img class="inline-block absolute top-2 right-0 cursor-pointer" src="/src/img/icons/cancel.png" alt="cancel" onclick="dismiss(this)">
+            <form action="" method="post">
+              <div class="flex items-center justify-center relative">
+                <input type="text" class="!w-[200px] !p-[5px] align-middle !rounded-[5px_0_0_5px]" name="" id="" placeholder="Enter Your Ticket No">
+                <button class="absolute top-0 right-0 bottom-0 bg-[#4c974c] h-[27px] text-white text-xs font-bold align-middle p-[5px] border border-[#aaa rounded-[0_5px_5px_0]">View</button>
+              </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- navbar end -->
+  </header>
+  <!-- header end -->
+
+  <main>
+    <!-- content header -->
+    <div class="bg-[#008000] flex items-center justify-between mb-[18px] px-5 pt-1 pb-2 border-b-4 border-[#dfdfdf] sticky top-0 z-40">
+      <div class="flex items-center">
+        <button type="button" data-modal-target="default-modal-1" data-modal-toggle="default-modal-1" class="btn-2 inline-block">Goods</button>
+        <form method="post" action="" class="ml-[150px]">
+          <div class="flex items-end gap-4">
+            <div class="inline-flex flex-col">
+              <label for="" class="text-[#f5f5f5] text-xs font-bold">Leaving From:</label>
+              <select name="" id="" class="w-[119px] sl-box h-7 bg-white text-black text-xs uppercase p-[3px] border border-[#aaa]">
+                <option value="none">---</option>
+                <option value="Abdullapur" class="option_text">Abdullapur</option>
+                <option value="Agartola" class="option_text">Agartola</option>
+                <option value="Akhora" class="option_text">Akhora</option>
+                <option value="Akkelpur" class="option_text">Akkelpur</option>
+                <option value="Amtoli" class="option_text">Amtoli</option>
+                <option value="Auskandi" class="option_text">Auskandi</option>
+                <option value="Bagha" class="option_text">Bagha</option>
+                <option value="Dhaka" class="option_text" selected>Dhaka</option>
+              </select>
+            </div>
+            <div class="inline-flex flex-col">
+              <span class="text-[#f5f5f5] text-xs font-bold">Going To:</span>
+              <select name="" id="" class="w-[119px] h-7 bg-white text-black text-xs uppercase p-[3px] border border-[#aaa]">
+                <option value="none" class="option_text">Select..</option>
+                <option value="Abdullapur" class="option_text">Abdullapur</option>
+                <option value="Agartola" class="option_text">Agartola</option>
+                <option value="Akhora" class="option_text">Akhora</option>
+                <option value="Akkelpur" class="option_text">Akkelpur</option>
+                <option value="Amtoli" class="option_text">Amtoli</option>
+                <option value="Auskandi" class="option_text">Auskandi</option>
+                <option value="Bagha" class="option_text">Bagha</option>
+                <option value="Dhaka" class="option_text">Dhaka</option>
+              </select>
+            </div>
+            <div class="inline-flex flex-col">
+              <span class="text-[#f5f5f5] text-xs font-bold">Coach</span>
+              <input type="text" name="" id="" placeholder="" class="w-[119px] h-7 bg-white text-black text-xs uppercase p-[3px] border border-[#aaa]">
+            </div>
+            <div class="inline-flex flex-col">
+              <span class="text-[#f5f5f5] text-xs font-bold">Departing On:</span>
+              <input type="date" name="" class="w-[119px] h-7 bg-white text-black text-xs uppercase p-[3px] border border-[#aaa]">
+            </div>
+            <div class="inline-flex flex-col">
+              <span class="text-[#f5f5f5] text-xs font-bold">Departing Time:</span>
+              <select name="searchmenu_departingtime" id="searchmenu_departingtime" class="w-[119px] h-7 bg-white text-black text-xs uppercase p-[3px] border border-[#aaa]">
+                <option value="" label="---" selected>---</option>
+                <option value="12:00 AM" label="12:00 AM">12:00 AM</option>
+                <option value="12:10 AM" label="12:10 AM">12:10 AM</option>
+                <option value="12:20 AM" label="12:20 AM">12:20 AM</option>
+                <option value="12:30 AM" label="12:30 AM">12:30 AM</option>
+                <option value="12:35 AM" label="12:35 AM">12:35 AM</option>
+                <option value="12:50 AM" label="12:50 AM">12:50 AM</option>
+                <option value="12:55 AM" label="12:55 AM">12:55 AM</option>
+                <option value="1:00 AM" label="1:00 AM">1:00 AM</option>
+                <option value="1:10 AM" label="1:10 AM">1:10 AM</option>
+                <option value="1:17 AM" label="1:17 AM">1:17 AM</option>
+                <option value="1:20 AM" label="1:20 AM">1:20 AM</option>
+                <option value="3:30 AM" label="3:30 AM">3:30 AM</option>
+                <option value="3:45 AM" label="3:45 AM">3:45 AM</option>
+                <option value="4:00 AM" label="4:00 AM">4:00 AM</option>
+                <option value="4:15 AM" label="4:15 AM">4:15 AM</option>
+                <option value="4:30 AM" label="4:30 AM">4:30 AM</option>
+                <option value="4:45 AM" label="4:45 AM">4:45 AM</option>
+                <option value="5:00 AM" label="5:00 AM">5:00 AM</option>
+                <option value="5:01 AM" label="5:01 AM">5:01 AM</option>
+                <option value="5:15 AM" label="5:15 AM">5:15 AM</option>
+                <option value="5:30 AM" label="5:30 AM">5:30 AM</option>
+                <option value="5:40 AM" label="5:40 AM">5:40 AM</option>
+                <option value="5:45 AM" label="5:45 AM">5:45 AM</option>
+                <option value="6:00 AM" label="6:00 AM">6:00 AM</option>
+                <option value="6:01 AM" label="6:01 AM">6:01 AM</option>
+                <option value="6:15 AM" label="6:15 AM">6:15 AM</option>
+                <option value="6:30 AM" label="6:30 AM">6:30 AM</option>
+                <option value="6:45 AM" label="6:45 AM">6:45 AM</option>
+                <option value="7:00 AM" label="7:00 AM">7:00 AM</option>
+                <option value="7:01 AM" label="7:01 AM">7:01 AM</option>
+                <option value="7:02 AM" label="7:02 AM">7:02 AM</option>
+                <option value="7:15 AM" label="7:15 AM">7:15 AM</option>
+                <option value="7:30 AM" label="7:30 AM">7:30 AM</option>
+                <option value="7:31 AM" label="7:31 AM">7:31 AM</option>
+                <option value="7:45 AM" label="7:45 AM">7:45 AM</option>
+                <option value="8:00 AM" label="8:00 AM">8:00 AM</option>
+                <option value="8:01 AM" label="8:01 AM">8:01 AM</option>
+                <option value="8:15 AM" label="8:15 AM">8:15 AM</option>
+                <option value="8:30 AM" label="8:30 AM">8:30 AM</option>
+                <option value="8:31 AM" label="8:31 AM">8:31 AM</option>
+                <option value="8:45 AM" label="8:45 AM">8:45 AM</option>
+                <option value="8:46 AM" label="8:46 AM">8:46 AM</option>
+                <option value="9:00 AM" label="9:00 AM">9:00 AM</option>
+                <option value="9:15 AM" label="9:15 AM">9:15 AM</option>
+                <option value="9:30 AM" label="9:30 AM">9:30 AM</option>
+                <option value="9:31 AM" label="9:31 AM">9:31 AM</option>
+                <option value="9:45 AM" label="9:45 AM">9:45 AM</option>
+                <option value="10:00 AM" label="10:00 AM">10:00 AM</option>
+                <option value="10:01 AM" label="10:01 AM">10:01 AM</option>
+                <option value="10:02 AM" label="10:02 AM">10:02 AM</option>
+                <option value="10:03 AM" label="10:03 AM">10:03 AM</option>
+                <option value="10:15 AM" label="10:15 AM">10:15 AM</option>
+                <option value="10:30 AM" label="10:30 AM">10:30 AM</option>
+                <option value="10:31 AM" label="10:31 AM">10:31 AM</option>
+                <option value="10:45 AM" label="10:45 AM">10:45 AM</option>
+                <option value="11:00 AM" label="11:00 AM">11:00 AM</option>
+                <option value="11:01 AM" label="11:01 AM">11:01 AM</option>
+                <option value="11:15 AM" label="11:15 AM">11:15 AM</option>
+                <option value="11:30 AM" label="11:30 AM">11:30 AM</option>
+                <option value="11:31 AM" label="11:31 AM">11:31 AM</option>
+                <option value="11:45 AM" label="11:45 AM">11:45 AM</option>
+                <option value="12:00 PM" label="12:00 PM">12:00 PM</option>
+                <option value="12:01 PM" label="12:01 PM">12:01 PM</option>
+                <option value="12:15 PM" label="12:15 PM">12:15 PM</option>
+                <option value="12:20 PM" label="12:20 PM">12:20 PM</option>
+                <option value="12:30 PM" label="12:30 PM">12:30 PM</option>
+                <option value="12:45 PM" label="12:45 PM">12:45 PM</option>
+                <option value="1:00 PM" label="1:00 PM">1:00 PM</option>
+                <option value="1:01 PM" label="1:01 PM">1:01 PM</option>
+                <option value="1:15 PM" label="1:15 PM">1:15 PM</option>
+                <option value="1:17 PM" label="1:17 PM">1:17 PM</option>
+                <option value="1:30 PM" label="1:30 PM">1:30 PM</option>
+                <option value="1:31 PM" label="1:31 PM">1:31 PM</option>
+                <option value="1:40 PM" label="1:40 PM">1:40 PM</option>
+                <option value="1:45 PM" label="1:45 PM">1:45 PM</option>
+                <option value="2:00 PM" label="2:00 PM">2:00 PM</option>
+                <option value="2:01 PM" label="2:01 PM">2:01 PM</option>
+                <option value="2:02 PM" label="2:02 PM">2:02 PM</option>
+                <option value="2:10 PM" label="2:10 PM">2:10 PM</option>
+                <option value="2:15 PM" label="2:15 PM">2:15 PM</option>
+                <option value="2:30 PM" label="2:30 PM">2:30 PM</option>
+                <option value="2:31 PM" label="2:31 PM">2:31 PM</option>
+                <option value="2:45 PM" label="2:45 PM">2:45 PM</option>
+                <option value="3:00 PM" label="3:00 PM">3:00 PM</option>
+                <option value="3:01 PM" label="3:01 PM">3:01 PM</option>
+                <option value="3:15 PM" label="3:15 PM">3:15 PM</option>
+                <option value="3:25 PM" label="3:25 PM">3:25 PM</option>
+                <option value="3:30 PM" label="3:30 PM">3:30 PM</option>
+                <option value="3:31 PM" label="3:31 PM">3:31 PM</option>
+                <option value="3:45 PM" label="3:45 PM">3:45 PM</option>
+                <option value="4:00 PM" label="4:00 PM">4:00 PM</option>
+                <option value="4:10 PM" label="4:10 PM">4:10 PM</option>
+                <option value="4:15 PM" label="4:15 PM">4:15 PM</option>
+                <option value="4:20 PM" label="4:20 PM">4:20 PM</option>
+                <option value="4:30 PM" label="4:30 PM">4:30 PM</option>
+                <option value="4:31 PM" label="4:31 PM">4:31 PM</option>
+                <option value="4:40 PM" label="4:40 PM">4:40 PM</option>
+                <option value="4:45 PM" label="4:45 PM">4:45 PM</option>
+                <option value="4:50 PM" label="4:50 PM">4:50 PM</option>
+                <option value="5:00 PM" label="5:00 PM">5:00 PM</option>
+                <option value="5:01 PM" label="5:01 PM">5:01 PM</option>
+                <option value="5:10 PM" label="5:10 PM">5:10 PM</option>
+                <option value="5:15 PM" label="5:15 PM">5:15 PM</option>
+                <option value="5:20 PM" label="5:20 PM">5:20 PM</option>
+                <option value="5:25 PM" label="5:25 PM">5:25 PM</option>
+                <option value="5:30 PM" label="5:30 PM">5:30 PM</option>
+                <option value="5:31 PM" label="5:31 PM">5:31 PM</option>
+                <option value="5:40 PM" label="5:40 PM">5:40 PM</option>
+                <option value="5:45 PM" label="5:45 PM">5:45 PM</option>
+                <option value="5:50 PM" label="5:50 PM">5:50 PM</option>
+                <option value="6:00 PM" label="6:00 PM">6:00 PM</option>
+                <option value="6:01 PM" label="6:01 PM">6:01 PM</option>
+                <option value="6:05 PM" label="6:05 PM">6:05 PM</option>
+                <option value="6:15 PM" label="6:15 PM">6:15 PM</option>
+                <option value="6:20 PM" label="6:20 PM">6:20 PM</option>
+                <option value="6:30 PM" label="6:30 PM">6:30 PM</option>
+                <option value="6:45 PM" label="6:45 PM">6:45 PM</option>
+                <option value="7:00 PM" label="7:00 PM">7:00 PM</option>
+                <option value="7:05 PM" label="7:05 PM">7:05 PM</option>
+                <option value="7:10 PM" label="7:10 PM">7:10 PM</option>
+                <option value="7:15 PM" label="7:15 PM">7:15 PM</option>
+                <option value="7:20 PM" label="7:20 PM">7:20 PM</option>
+                <option value="7:25 PM" label="7:25 PM">7:25 PM</option>
+                <option value="7:30 PM" label="7:30 PM">7:30 PM</option>
+                <option value="7:35 PM" label="7:35 PM">7:35 PM</option>
+                <option value="7:40 PM" label="7:40 PM">7:40 PM</option>
+                <option value="7:45 PM" label="7:45 PM">7:45 PM</option>
+                <option value="7:50 PM" label="7:50 PM">7:50 PM</option>
+                <option value="7:55 PM" label="7:55 PM">7:55 PM</option>
+                <option value="8:00 PM" label="8:00 PM">8:00 PM</option>
+                <option value="8:01 PM" label="8:01 PM">8:01 PM</option>
+                <option value="8:15 PM" label="8:15 PM">8:15 PM</option>
+                <option value="8:30 PM" label="8:30 PM">8:30 PM</option>
+                <option value="8:40 PM" label="8:40 PM">8:40 PM</option>
+                <option value="8:45 PM" label="8:45 PM">8:45 PM</option>
+                <option value="9:00 PM" label="9:00 PM">9:00 PM</option>
+                <option value="9:01 PM" label="9:01 PM">9:01 PM</option>
+                <option value="9:15 PM" label="9:15 PM">9:15 PM</option>
+                <option value="9:16 PM" label="9:16 PM">9:16 PM</option>
+                <option value="9:30 PM" label="9:30 PM">9:30 PM</option>
+                <option value="9:31 PM" label="9:31 PM">9:31 PM</option>
+                <option value="9:35 PM" label="9:35 PM">9:35 PM</option>
+                <option value="9:45 PM" label="9:45 PM">9:45 PM</option>
+                <option value="10:00 PM" label="10:00 PM">10:00 PM</option>
+                <option value="10:01 PM" label="10:01 PM">10:01 PM</option>
+                <option value="10:02 PM" label="10:02 PM">10:02 PM</option>
+                <option value="10:14 PM" label="10:14 PM">10:14 PM</option>
+                <option value="10:15 PM" label="10:15 PM">10:15 PM</option>
+                <option value="10:20 PM" label="10:20 PM">10:20 PM</option>
+                <option value="10:29 PM" label="10:29 PM">10:29 PM</option>
+                <option value="10:30 PM" label="10:30 PM">10:30 PM</option>
+                <option value="10:31 PM" label="10:31 PM">10:31 PM</option>
+                <option value="10:35 PM" label="10:35 PM">10:35 PM</option>
+                <option value="10:40 PM" label="10:40 PM">10:40 PM</option>
+                <option value="10:44 PM" label="10:44 PM">10:44 PM</option>
+                <option value="10:45 PM" label="10:45 PM">10:45 PM</option>
+                <option value="10:50 PM" label="10:50 PM">10:50 PM</option>
+                <option value="11:00 PM" label="11:00 PM">11:00 PM</option>
+                <option value="11:01 PM" label="11:01 PM">11:01 PM</option>
+                <option value="11:03 PM" label="11:03 PM">11:03 PM</option>
+                <option value="11:10 PM" label="11:10 PM">11:10 PM</option>
+                <option value="11:15 PM" label="11:15 PM">11:15 PM</option>
+                <option value="11:20 PM" label="11:20 PM">11:20 PM</option>
+                <option value="11:25 PM" label="11:25 PM">11:25 PM</option>
+                <option value="11:30 PM" label="11:30 PM">11:30 PM</option>
+                <option value="11:31 PM" label="11:31 PM">11:31 PM</option>
+                <option value="11:32 PM" label="11:32 PM">11:32 PM</option>
+                <option value="11:35 PM" label="11:35 PM">11:35 PM</option>
+                <option value="11:40 PM" label="11:40 PM">11:40 PM</option>
+                <option value="11:45 PM" label="11:45 PM">11:45 PM</option>
+                <option value="11:50 PM" label="11:50 PM">11:50 PM</option>
+                <option value="11:54 PM" label="11:54 PM">11:54 PM</option>
+                <option value="11:55 PM" label="11:55 PM">11:55 PM</option>
+                <option value="11:56 PM" label="11:56 PM">11:56 PM</option>
+                <option value="11:57 PM" label="11:57 PM">11:57 PM</option>
+                <option value="11:58 PM" label="11:58 PM">11:58 PM</option>
+                <option value="11:59 PM" label="11:59 PM">11:59 PM</option>
+              </select>
+            </div>
+            <input type="submit" value="Search" class="btn_search">
+          </div>
+        </form>
+      </div>
+
+      <div class="flex items-center">
+        <button class="btn-2">Transfer Seat</button>
+      </div>
+    </div>
+
+    <!-- goods modal box start -->
+    <div id="default-modal-1" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-[-150px] right-0 left-0 z-50 w-full h-[calc(100%-1rem)] max-h-full bg-transparent">
+      <div class="w-[500px] !bg-white !px-4 !py-2 border border-[#aaa] rounded-[5px] !backdrop-opacity-0">
+        <form action="" method="post">
+          <div class="flex justify-between mb-4">
+            <p class="text-[13px] text-[#222] font-verdana font-bold">Goods Operation</p>
+            <span class="text-[16px] text-[#222] font-verdana font-bold cursor-pointer" data-modal-hide="default-modal-1">&times;</span>
+          </div>
+          <div class="space-y-3">
+            <div class="w-[364px] flex items-center gap-2 p-[3px_0_3px_3px]">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Ticket No</p>
+              <input type="text" class="!w-[274px] !text-xs !px-[3px] !py-4" name="" id="">
+            </div>
+            <div class="w-[364px] flex items-center gap-2 p-[3px_0_3px_3px]">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Goods(KG)</p>
+              <input type="text" class="!w-[274px] !text-xs !px-[3px] !py-4" name="" id="">
+            </div>
+            <div class="w-[364px] flex items-center gap-2 p-[3px_0_3px_3px]">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Gross Pay</p>
+              <input type="text" class="!w-[274px] !text-xs !px-[3px] !py-4" name="" id="">
+            </div>
+            <div class="w-[364px] flex items-center gap-2 p-[3px_0_3px_3px]">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Net Pay</p>
+              <input type="text" class="!w-[274px] !text-xs !px-[3px] !py-4" name="" id="">
+            </div>
+            <div class="bg-[#ffebcd] w-[364px] p-[3px_0_3px_3px] flex items-center gap-2">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Previous Payed</p>
+              <input type="text" class="!w-[274px] !text-xs !px-[3px]" name="" id="">
+            </div>
+            <div class="w-[364px] flex items-center gap-2 p-[3px_0_3px_3px]">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Final Net Pay</p>
+              <input type="text" class="!w-[274px] !text-xs !px-[3px] !py-4" name="" id="">
+            </div>
+            <div class="w-[364px] flex items-center gap-2 p-[3px_0_3px_3px]">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Total Paid</p>
+              <input type="text" class="!w-[274px] !text-xs !px-[3px] !py-4" name="" id="">
+            </div>
+            <div class="w-[364px] flex items-center gap-2 p-[3px_0_3px_3px]">
+              <p class="w-[78px] text-[#222] text-[13px] font-verdana">Refund</p>
+              <div class="flex flex-col gap-2">
+                <input type="text" class="!w-[274px] !text-xs !px-[3px] !py-4" name="" id="">
+                <button type="submit" class="w-10 bg-[#6ab620] text-white text-sm font-md font-verdana border border-[#749217] rounded-[3px]">Save</button>
+              </div>  
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- goods modal box end -->
+
+    <!-- transfer seat modal box start -->
+    <div id="default-modal-2" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full h-[calc(100%-1rem)] max-h-full bg-transparent">
+      <div class="w-[966px] !bg-white !px-4 !py-2 border border-[#aaa] rounded-[5px] !backdrop-opacity-0">
+        <form action="" method="post">
+          <div class="flex justify-between mb-4">
+            <p class="text-[13px] text-[#222] font-verdana font-bold">Seat Transfer Operation</p>
+            <span class="text-[16px] text-[#222] font-verdana font-bold cursor-pointer" data-modal-hide="default-modal-2">&times;</span>
+          </div>
+          <div class="h-[354px] flex flex-col space-y-3 mt-8 px-3 overflow-y-auto">
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Route</p>
+              <select class="bg-white w-[280px] min-h-[30px] text-[12px] text-black align-middle p-0.5 border border-[#bcbcbc]">
+                <option value="none" selected>---</option>
+                <option value="none">Dhaka->Sylhet</option>              
+                <option value="none">Dhaka->Sylhet</option>              
+                <option value="none">Dhaka->Sylhet</option>              
+                <option value="none">Dhaka->Sylhet</option>              
+                <option value="none">Dhaka->Sylhet</option>              
+              </select>
+            </div>
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Seat Plan</p>
+              <select class="bg-white w-[280px] min-h-[30px] text-[12px] text-black align-middle p-0.5 border border-[#bcbcbc]">
+                <option value="none" selected>---</option>         
+                <option value="none">Non AC(36)4 hours</option>     
+                <option value="none">Non AC(36)4 hours</option>     
+                <option value="none">Non AC(36)4 hours</option>     
+                <option value="none">Non AC(36)4 hours</option>     
+                <option value="none">Non AC(36)4 hours</option>     
+              </select>
+            </div>
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Departing Time</p>
+              <input type="date" name="" class="w-[280px] !h-[35px] bg-white text-black text-xs uppercase p-0.5 border border-[#aaa]">
+            </div>
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Schedule</p>
+              <select class="bg-white w-[280px] min-h-[30px] text-[12px] text-black align-middle p-0.5 border border-[#bcbcbc]">
+                <option value="none" selected>---</option>              
+              </select>
+            </div>
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Coaches</p>
+              <select class="bg-white w-[280px] min-h-[30px] text-[12px] text-black align-middle p-0.5 border border-[#bcbcbc]">
+                <option value="none" selected>---</option>     
+              </select>
+            </div>
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Seats Transfer to/Return From</p>
+              <select class="bg-white w-[280px] min-h-[30px] text-[12px] text-black align-middle p-0.5 border border-[#bcbcbc]">
+                <option value="none" selected>---</option>     
+              </select>
+            </div>
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Seats Box List</p>
+              <div>
+                <p class="text-[13px] text-[#222] font-verdana">Available Seats:</p>
+                  <select name="" id="" class="w-[280px] h-[76px] bg-white text-black text-xs uppercase p-[3px] border border-[#aaa]" multiple="multiple">
+                    <option value="Abdullapur" class="option_text">Abdullapur</option>
+                    <option value="Agartola" class="option_text">Agartola</option>
+                    <option value="Akhora" class="option_text">Akhora</option>
+                    <option value="Akkelpur" class="option_text">Akkelpur</option>
+                    <option value="Amtoli" class="option_text">Amtoli</option>
+                    <option value="Auskandi" class="option_text">Auskandi</option>
+                    <option value="Bagha" class="option_text">Bagha</option>
+                    <option value="Dhaka" class="option_text">Dhaka</option>
+                  </select>
+              </div>
+              <div class="flex flex-col gap-2 px-2">
+                <button class="bg-[#3c6ed1] text-xs text-white font-verdana font-bold rounded-[3px] px-1 whitespace-nowrap">Transfer -></button>
+                <button class="bg-[#3c6ed1] text-xs text-white font-verdana font-bold rounded-[3px] px-1 whitespace-nowrap"><- Return</button>
+              </div>
+              <div>
+                <p class="text-[13px] text-[#222] font-verdana">Allowed Seats For:</p>
+                  <select name="" id="" class="w-[280px] h-[76px] bg-white text-black text-xs uppercase p-[3px] border border-[#aaa]" multiple="multiple">
+                    <option value="Abdullapur" class="option_text">Abdullapur</option>
+                    <option value="Agartola" class="option_text">Agartola</option>
+                    <option value="Akhora" class="option_text">Akhora</option>
+                    <option value="Akkelpur" class="option_text">Akkelpur</option>
+                    <option value="Amtoli" class="option_text">Amtoli</option>
+                    <option value="Auskandi" class="option_text">Auskandi</option>
+                    <option value="Bagha" class="option_text">Bagha</option>
+                    <option value="Dhaka" class="option_text">Dhaka</option>
+                  </select>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <p class="w-[205px] text-[13px] text-[#333]">Non Allowed Seats Permited</p>
+              <div>
+                <input type="radio" class="block mb-2" name="" id="">
+                <button class="bg-[#6ab620] text-xs text-white font-verdana px-0.5 rounded-[3px]">Save Configuration</button>
+                <button class="bg-[#d22a2a] text-xs text-white font-verdana px-0.5 rounded-[3px]">Reset</button>
+                <button class="bg-[#d22a2a] text-xs text-white font-verdana px-0.5 rounded-[3px]">Close</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- transfer seat modal box end -->
+
+    <!-- user account edit -->
+    <div class="min-w-[940px] min-h-[450px] p-5 coach_active_inactive">
+      <form action="" method="post">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="text-[15px] text-[#eb5e00] uppercase font-bold leading-[19px]">Edit user account</h3>
+          <div class="flex items-center gap-1">
+            <button class="btn_top">
+              <span class="bg-plus-btn-icon bg-no-repeat px-2"></span>
+              <span class="align-middle">Update</span>
+            </button>
+          </div>
+        </div>
+        <hr class="border-t border-[4px]">
+
+        <div class="flex flex-col space-y-3 mt-8 px-3">
+          <div class="flex items-center gap-2">
+            <p class="w-[205px] text-xs text-[#333] font-bold uppercase">First Name *</p>
+            <input type="text" class="!w-[282px] !px-[3px] !py-4" name="" value="portonicscounter" id="">
+          </div>
+          <div class="flex items-center gap-2">
+            <p class="w-[205px] text-xs text-[#333] font-bold uppercase">Last Name *</p>
+            <input type="text" class="!w-[282px] !px-[3px] !py-4" name="" value="portonicscounter" id="">
+          </div>
+          <div class="flex items-center gap-2">
+            <p class="w-[205px] text-xs text-[#333] font-bold uppercase">Password</p>
+            <input type="password" class="!w-[282px] !px-[3px] !py-4" name="" id="">
+              <span class="text-xs text-[#333] font-bold uppercase">CHARACTER RANGE IS FROM 5 TO 255</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <p class="w-[205px] text-xs text-[#333] font-bold uppercase">Retype Password *</p>
+            <input type="password" class="!w-[282px] !px-[3px] !py-4" name="" id="">
+            <span class="text-xs text-[#333] font-bold uppercase">CHARACTER RANGE IS FROM 5 TO 255</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <p class="w-[205px] text-xs text-[#333] font-bold uppercase">Mobile</p>
+            <input type="tel" class="!w-[282px] !px-[3px] !py-4" name="" value="16460" id="">
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <p class="w-[205px] text-xs text-[#333] font-bold uppercase">Email</p>
+            <input type="email" class="!w-[282px] !px-[3px] !py-4" name="" id="">
+          </div>
+        </div>
+      </form>
+    </div>
+    
+  </main>
+
+  <!-- footer -->
+  <footer class="bg-[#008000] h-[62px]"></footer>
+
+  <!-- JS -->
+  <!-- flowbite component -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <!-- main js -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

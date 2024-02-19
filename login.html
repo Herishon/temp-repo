@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/src/img/icons/favicon.ico" type="image/x-icon">
+  <title>Login</title>
+  <link rel="stylesheet" href="/output/style.css">
+</head>
+<body class="font-arial bg-[#e6e6e6]">
+
+  <main>
+    <!-- login -->   
+    <div class="h-full pl-[300px] py-[200px]">
+      <div class="w-[600px] bg-[#EBEFF0]">
+        <h1 class="bg-btn-bg bg-repeat-x bg-[0_100%] bg-[#ffac47] text-[11px] text-white font-bold border border-[#a04300] p-[7px_4px_10px_10px] mb-[10px]">Welcome to Shyamoli N.R Travels login panel</h1>
+        <form class="px-2 border border-black" method="post" action="">
+          <div class="pl-16 py-12 pr-[35px] space-y-1">
+            <h3 class="text-xl text-[#2f2f2f] mb-[10px]">Log in to Admin Panel</h3>
+            <div class="flex flex-col">
+              <label class="text-xs text-[#333] font-bold" for="name">User name:</label>
+              <input type="text" class="!w-[213px] !p-[3px] !border !border-[#333] rounded-[3px]" name="name" id="">
+            </div>
+            <div class="flex flex-col">
+              <label class="text-xs text-[#333] font-bold" for="password">Password:</label>
+              <input type="password" class="!w-[213px] !p-[3px] !border !border-[#333] rounded-[3px]" name="password" id="">
+            </div>
+            <div class="flex flex-col">
+              <label class="text-xs text-[#333] font-bold">Security Code:</label>
+              <img class="block mb-1" src="/src/img/logincaptcha.jpg" alt="captcha" width="140" height="60">
+              <input type="number" name="" class="!w-[224px] !p-[3px] rounded-[3px]" id="" placeholder="Type security code">
+            </div>
+            <div class="flex justify-end py-10">
+              <button type="submit" class="btn_top">Login</button>
+            </div>
+          </div>
+          <p class="text-center text-[11px] text-[#2f2f2f] py-2 border-t border-[#ffa500]">Copyright © Robi Axiata Limited</p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- JS -->
+  <!-- main js -->
+  <script src="./js/app.js"></script>
+</body>
+</html>
